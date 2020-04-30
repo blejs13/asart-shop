@@ -40,5 +40,23 @@ function loadProducts(){
         });
     }
 }
+function loadProducts1{
+    if($('#last_product_id').val()!=-1){
+        var id_of_product = $('#last_product_id').val();
+        $('#last_product_id').val(-1);
+    $.ajax({
+        type: 'POST',
+        // make sure you respect the same origin policy with this url:
+        // http://en.wikipedia.org/wiki/Same_origin_policy
+        url: 'products/loadProductstest',
+        data: { 
+            'foo': 'bar', 
+            'caaaaa': 'nodsadasda' 
+        },
+        success: function(msg){
+            alert('wow' + msg);
+        }
+    });
+}
 
 

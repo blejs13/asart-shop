@@ -29,4 +29,8 @@ class Products extends Controller{
         echo json_encode($json_array);
 
     }
+
+    public function loadProductstest(){
+        echo json_encode($_POST);
+    }
 }
