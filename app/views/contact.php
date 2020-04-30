@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>AsArt Ceramika</title>
-        <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
         <link rel="icon" href="files/images/other/favicon.ico">
         <meta name="keywords" content="Ceramika, Ozdoby, Dom, Ogród, Morze" />
         <link rel="stylesheet"  href="files/style/style.css">
@@ -53,6 +53,14 @@
                             <p>BIC KOD:PL</p>
                             <p>SWIFT KOD: PKOPPLPW</p>
                         </div>
+                        <div id="map">
+                            <div class="mapouter">
+                                <div class="gmap_canvas">
+                                    <iframe width="100%" height="100%" src="https://maps.google.com/maps?q=Agra%20Zielony%20Ogr%C3%B3d+(Zielony%20Ogr%C3%B3d)&amp;ie=UTF8&amp;t=&amp;z=11&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no"></iframe>
+                                </div>
+                                <style>.mapouter{text-align:right;height:100%;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style>
+                        </div> 
+                    </div>
                     </div>
                 </main>
                 <footer class="column">
