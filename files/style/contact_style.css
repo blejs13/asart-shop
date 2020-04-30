@@ -6,26 +6,45 @@ main{
 	background: #fff;
 	grid-template-columns: auto;
 	margin: 0.3em 0.3em 0em 0.3em;
+	padding: 10px;
+	grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "info bank"
+                         "contact contact";
 }
-.title{
+.contact>div{
 	justify-self: start;
 	align-self: start;
 	text-align: justify;
 }
-.title h2{
+
+.contact>div h2{
 	margin: 10px 0 0 10px;
 	font-size: 1.5em;
 }
-.title p{
+.contact>div p{
 	margin: 10px 10px 10px 10px;
 	font-size: 1.3em;
 }
 
+.info{
+	grid-area: info;
+}
+.contactinfo{
+	grid-area: contact;
+}
+.bank{
+	grid-area: bank;
+}
+
+
+
+
 @media only screen and (max-width: 1023px) {
-	.title h2{
+	.contact>div h2{
 		font-size: 1.2em;
 	}
-	.title p{
+	.contact>div p{
 		
 		font-size: 1em;
 	}

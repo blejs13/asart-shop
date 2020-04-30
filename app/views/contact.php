@@ -34,16 +34,19 @@
             <div id="page" class="column">
                 <main> 
                     <div  class="contact">
-                        <div class="title">
+                        <div class="info">
                             <h2>Informacje</h2>
-                            <p>Jeżeli jesteś zainteresowany jedną z prac, lub podjęciem współpracy, skontaktuj się pod podany numer.</p>
+                            <p>Jeżeli jesteś zainteresowany jedną z prac, lub podjęciem współpracy, skontaktuj się z nami pod podany numer.</p>
+                        </div>
+                        <div class="contactinfo">
                             <h2>Kontakt</h2>
                             <p>Joanna Grabowska</p>
                             <p>Al. Wojska Polskiego 17</p>
                             <p>84-360 Łeba</p>
                             <p>tel. 609 474 272</p> 
-
-                            <h2>Bank</h2>
+                        </div>
+                        <div class="bank">
+                            <h2>Dane do przelewu:</h2>
                             <p>BANK PEKAO SA</p>
                             <p>I O/LĘBORK</p>
                             <p>98 1240 3800 1111 0000 4463 3659</p>
