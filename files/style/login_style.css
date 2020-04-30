@@ -1,0 +1,43 @@
+main{
+    grid-template-columns: auto;
+    grid-template-rows: max-content;
+    justify-content: center;
+    align-content:center;
+    height: 80vh;
+}
+#form{
+	display: grid;
+	background: #fff;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-content:center;
+    width:350px;
+    height:200px ;
+}
+#form>input{
+    display: block;
+    width: 200px;
+    margin: 0 0 10px 0;
+    height: 30px;
+    padding:2px;
+}
+#form>input:focus{
+    outline-color: #131313;
+}
+#form>button{
+    height: 40px;
+}
+#form>button:focus{
+    outline-color: #131313;
+}
+
+.errorInput{
+    background: rgb(220, 20, 76,0.3);
+    color: #ddd;
+}
+
+#errorUser{
+    color:rgb(220, 20, 76);
+    font-size: 0.8em;
+    display: none;
+}

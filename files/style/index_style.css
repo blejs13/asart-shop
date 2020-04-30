@@ -1,0 +1,85 @@
+main{
+	grid-template-columns: auto;
+}
+
+.element{
+	display: grid;
+	background: #fff;
+	grid-template-columns: 3fr 1fr;
+	margin: 0.3em 0.3em 0em 0.3em;
+}
+.title{
+	justify-self: start;
+	align-self: start;
+	text-align: justify;
+}
+.title h2{
+	margin: 10px 0 0 10px;
+	font-size: 1.5em;
+}
+.title p{
+	margin: 10px 10px 10px 10px;
+	font-size: 1.3em;
+}
+.image img{
+	display: block;
+	width: 100%;
+    height: 100%;
+	object-fit: cover;
+}
+.image_position_1{
+	object-position: 60% 50%;
+}
+.image_position_2{
+	object-position: 10%;
+}
+.image_position_3{
+	object-position: right;
+}
+.reverse{
+	grid-template-columns: 1fr 3fr;
+}
+.reverse .title{
+	grid-column: 2;
+}
+
+.reverse .image{
+	grid-column: 1;
+	grid-row: 1;
+}
+.baner{
+	width:100%;
+}
+.baner img{
+	object-fit: cover;
+	object-position: right;
+	width: 100%;
+    height: 100%;
+	display: block;
+}
+@media only screen and (max-width: 1023px) {
+	.title h2{
+		font-size: 1.2em;
+	}
+	.title p{
+		
+		font-size: 1em;
+	}
+}
+@media only screen and (max-width: 600px) {
+    
+    .info{
+		font-size: 0.9em;
+	}
+	.element{
+		
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+	}
+    .reverse .image{
+		grid-column: 2;
+		grid-row: 2;
+	}
+}
+
+

@@ -1,0 +1,37 @@
+main{
+	grid-template-columns: auto;
+}
+.contact{
+	display: grid;
+	background: #fff;
+	grid-template-columns: auto;
+	margin: 0.3em 0.3em 0em 0.3em;
+}
+.title{
+	justify-self: start;
+	align-self: start;
+	text-align: justify;
+}
+.title h2{
+	margin: 10px 0 0 10px;
+	font-size: 1.5em;
+}
+.title p{
+	margin: 10px 10px 10px 10px;
+	font-size: 1.3em;
+}
+
+@media only screen and (max-width: 1023px) {
+	.title h2{
+		font-size: 1.2em;
+	}
+	.title p{
+		
+		font-size: 1em;
+	}
+}
+@media only screen and (max-width: 600px) {
+   
+}
+
+

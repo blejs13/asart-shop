@@ -1,0 +1,347 @@
+main{
+	grid-template-columns: auto;
+}
+.contact{
+	display: grid;
+	background: #fff;
+	grid-template-columns: auto;
+	margin: 0.3em 0.3em 0em 0.3em;
+}
+.title{
+	justify-self: start;
+	align-self: start;
+	text-align: justify;
+}
+.title h2{
+	margin: 10px 0 0 10px;
+	font-size: 1.5em;
+}
+.title p{
+	margin: 10px 10px 10px 10px;
+	font-size: 1.3em;
+}
+
+main{
+	display:grid;
+	width: 100%;
+	background: #ddd;
+	grid-template-columns: repeat(auto-fill,minmax(250px, 1fr));
+}
+
+/*PRODUCT*/
+.product{
+height: auto;
+margin: 0.3em 0.3em 0em 0.3em;
+display: grid; 
+max-width: 400px;
+background: #fff;
+grid-template-columns: auto min-content min-content;
+grid-template-rows: min-content min-content auto;
+grid-template-areas: "img img img"
+				 "title edit delete"
+				 "id date date";
+
+}
+.product_miniature{
+grid-area: img;
+overflow: hidden;
+align-self: start;    
+}
+.product_miniature img{
+width: 100%;
+display: block;
+transition: all .1s ease-in-out;
+cursor: pointer;
+}
+.product_miniature:hover>img{
+transform: scale(1.1);
+}
+.product_miniature:focus>img{
+transform: scale(1.1);
+}
+.product_title{
+margin:   10px 0 0 10px;
+font-size: 1.8em;
+grid-area:title;
+}
+.product_id{
+grid-area: id;
+justify-self: start;
+align-self: end;
+font-size: 0.8em;
+margin:   10px 0 10px 10px;
+
+}
+.product_date{
+grid-area: date;
+justify-self: end;
+align-self: end;
+font-size: 0.8em;
+margin:   10px 10px 10px 0;
+}
+.product_delete{
+	grid-area: delete;
+	justify-self: start;
+	align-self: start;
+	font-size: 0.8em;
+	margin:   10px 5px 0px 5px;
+	background-color: red;
+	font-weight: 600;
+	padding:3px;
+	color: #fff;
+	cursor: pointer;
+}
+.product_edit{
+	grid-area: edit;
+	justify-self: start;
+	align-self: start;
+	font-size: 0.8em;
+	margin:   10px 5px 0px 5px;
+	background-color: orange;
+	font-weight: 600;
+	padding:3px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.product_add{
+	display: grid;
+	height: auto;
+	margin: 0.3em 0.3em 0em 0.3em;
+	display: grid; 
+	max-width: 400px;
+	cursor: pointer;
+	overflow: hidden;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: min-content auto;
+	grid-template-areas: "logout deleted"
+					"add add";
+}
+.product_add > .logout{
+	grid-area: logout;
+	background: orange;
+	display: grid;
+	transition: all .1s ease-in-out;
+	
+	height: 100px;	
+}
+.logout>p{
+	color: #ddd;
+	font-weight: 600;
+	align-self: center;
+	justify-self: center;
+	
+}
+
+.product_add > .deleted{
+	grid-area: deleted;
+	background: red;
+	display: grid;
+	transition: all .1s ease-in-out;
+	
+	height: 100px;	
+}
+.deleted>p{
+	color: #ddd;
+	font-weight: 600;
+	align-self: center;
+	justify-self: center;
+	
+}
+
+.product_add > *:hover {
+	font-size: 1.1em;
+}
+.product_add >.add{
+	
+	background: green;
+	grid-area: add;
+	width: 100%;
+	height: 100%;
+	transition: all .1s ease-in-out;
+	display: grid;
+}
+.add >p{
+	color: #ddd;
+	font-size: 5em;
+	align-self: center;
+	justify-self: center;
+}
+
+/*OVERLAY*/
+.overlay{
+	width:100vw;
+	height: 100%;
+	position: fixed;
+	background: #131313dd;
+	z-index: 1000;
+}
+.exitOverlay{
+	grid-area: close;
+	cursor: pointer;
+	background: #dc144c;
+	color:#fff;
+	padding:10px;
+	font-size: 1.5em;
+	font-weight: 500;
+	text-align: end;
+}
+.overlayTitle{
+	grid-area: title;
+	background: #dc144c;
+	color:#fff;
+	font-size: 1.5em;
+	font-weight: 500;
+	padding:10px;
+}
+.overlay>div{
+	background: #fff;
+	margin: 1em;
+	display: grid;
+	grid-template-columns: auto min-content;
+	grid-template-rows: auto auto;
+	grid-template-areas: "title close"
+					"content content";
+}
+.overlay>div>form{
+	grid-area:content;
+	font-size: 1.2em;
+	margin: 1em;
+	padding: 0em;
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-gap: 10px;
+	grid-template-areas: "title miniature"
+					"price photos"
+					"info photos"
+					"checkboxes checkboxes"
+					"button button";
+}
+
+.overlay>div>form>label{
+	display: grid;
+	align-content: flex-start;
+	justify-content: flex-start;
+}
+
+#title_input{
+	grid-area: title;
+}
+#info_input{
+	grid-area: info;
+}
+#price_input{
+	grid-area: price;
+}
+#miniature_input{
+	grid-area: miniature;
+}
+#photos_input{
+	grid-area: photos;
+}
+
+.checkboxes_input{
+	grid-area:checkboxes;
+	display: grid;
+}
+
+/* The container */
+.container {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #ddd;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+	background-color: #eee;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+	background-color: #dc144c;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+	display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+  }
+
+  .button {
+	grid-area: button;
+	background-color: green;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+  }
+
+
+.grey{
+	color: #ddd;
+}
+
+@media only screen and (max-width: 1023px) {
+	.title h2{
+		font-size: 1.2em;
+	}
+	.title p{
+		
+		font-size: 1em;
+	}
+}
+@media only screen and (max-width: 600px) {
+   
+}
+
+

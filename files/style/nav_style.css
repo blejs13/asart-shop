@@ -1,0 +1,125 @@
+nav{/*navigation bar*/
+	position: fixed;
+	left:0;
+	top:0;
+	width: 17vw;
+	height:100vh;
+	background:#131313;
+	z-index: 30;
+	height:100%;
+}
+	nav > *{/*phone, checkbox, and menu*/
+		width:100%;
+		display: flex;
+		
+	}
+	nav > div  img{
+		width: 10em;
+		align-self: center;
+	}
+			#menu{/*div with menu elements: "galeria start kontakt" */
+				/*inside items*/
+				display: flex;
+				align-items: center;
+				justify-content: space-around;
+				flex-direction: column;
+				
+				
+			}
+				
+				#menu > *{/*menu elements: "galeria start kontakt"*/
+					padding: 0.3em 0;
+					width: 100%;
+					/*inside items*/
+					height: 30px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					/*border*/
+					border-top:1px solid #4e4e4e;
+					/*font*/
+					text-decoration: none;
+					font-size: 1.4em;
+					font-weight: bold;
+					color: #ddd;
+					z-index: 40;
+					
+				}
+				#manu > a :hover{
+					background: #fff;
+
+				}
+				#menu a:nth-child(1){
+					border: none;
+				}
+				#hamburger{
+					display:none;
+					cursor: pointer;
+				}
+				#toggle{/*checkbox for hidden menu*/
+					display: none;
+				}
+@media only screen and (max-width: 1023px) {
+	nav img{
+		height: 7em;
+		max-width: 7em;
+	}
+	#menu{
+		font-size: 0.8em;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	#toggle:checked ~ #logo > #hamburger{/*changing color when menu visible*/
+		color: #555;
+	}
+	#toggle:checked ~ #menu {/*hidden menu height after open*/
+		height:100vh;
+		position: absolute;
+		justify-content: center;
+		top: 0;
+	}
+	#toggle:checked ~ #menu a{/*hidden menu height after open*/
+		display: flex;
+	}
+	nav{
+		width:100vw;
+		height:3em;
+		top:0;
+		position:fixed;
+	}
+	#menu a{ 
+		display: none;
+		height: 3em;
+		border: 0;
+	}
+	#menu{
+		background: #131313;
+		justify-content: flex-start;
+	}
+	#hamburger{
+		display:flex;
+		color:#eee;
+		align-items: center;
+		justify-content: center;
+		padding-right: 0.4em;
+		font-size: 2em;
+		z-index:50;
+	}
+	nav img{
+		height: 3em;
+		max-width: 3em;
+
+	}
+	#logo{
+		justify-content: space-between;
+	}
+	#logo a{
+		z-index:50;
+	}
+	#logo img{
+		
+		display: block;
+	}
+
+}
