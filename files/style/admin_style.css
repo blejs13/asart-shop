@@ -61,7 +61,6 @@ transform: scale(1.1);
 }
 .product_title{
 margin:   10px 0 0 10px;
-font-size: 1.8em;
 grid-area:title;
 }
 .product_id{
@@ -332,13 +331,6 @@ margin:   10px 10px 10px 0;
 }
 
 @media only screen and (max-width: 1023px) {
-	.title h2{
-		font-size: 1.2em;
-	}
-	.title p{
-		
-		font-size: 1em;
-	}
 }
 @media only screen and (max-width: 600px) {
    

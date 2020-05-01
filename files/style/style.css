@@ -1,9 +1,13 @@
 *{
 	margin:0;
     padding:0;
-	font-family: 'Barlow Semi Condensed', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+
     font-size: 1em;
 	color: #333;
+}
+h2{
+	font-size: 1.5em;
 }
 body{
     background: #fff;
@@ -123,20 +127,17 @@ body{
 .product_info{
 	grid-area: content;
     margin: 10px 10px 0 10px;
-    font-size: 1.1em;
 	text-align: justify;
 }
 .product_price{
 	margin:  10px 10px 0 0;
     grid-area: price;
-    font-size: 1.8em;
 	justify-self: end;
 	align-self: start;
 	display: none;
 }
 .product_title{
     margin:   10px 0 0 10px;
-    font-size: 1.8em;
 	grid-area:title;
 }
 .product_id{
@@ -159,22 +160,9 @@ body{
     main{
         grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
     }
-    .product_info{
-		font-size: 1em;
-	}
-	.product_title{
-		font-size:1.2em;
-	}
-	.product_price{
-		font-size:1.2em;
-	} 
 }
 @media only screen and (min-width: 767px){
-    #page{
-        margin-top: 0;
-        margin-left: 17vw;
-        width:83vw;
-    }
+    
     main{
         grid-template-columns: repeat(auto-fill,minmax(250px, 1fr));
     }
@@ -183,19 +171,22 @@ body{
 @media only screen and (min-width: 1023px){
     ::-webkit-scrollbar {
         width: 10px;
+	}
+	#page{
+        margin-top: 0;
+        margin-left: 17vw;
+        width:83vw;
     }
     main{
         grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
-    }
-    .product_info{
-		font-size: 1.2em;
 	}
-	.product_title{
-		font-size:1.6em;
+	h2{
+		font-size: 1.5em;
 	}
-	.product_price{
-		font-size:1.6em;
-	} 
+	p{
+		
+		font-size: 1.1em;
+	}
 }
 @media only screen and (min-width: 1700px){
     main{

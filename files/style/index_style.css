@@ -15,11 +15,9 @@ main{
 }
 .title h2{
 	margin: 10px 0 0 10px;
-	font-size: 1.5em;
 }
 .title p{
 	margin: 10px 10px 10px 10px;
-	font-size: 1.3em;
 }
 .image img{
 	display: block;

@@ -40,7 +40,7 @@ nav{/*navigation bar*/
 					/*font*/
 					text-decoration: none;
 					font-size: 1.4em;
-					font-weight: bold;
+			
 					color: #ddd;
 					z-index: 40;
 					
@@ -69,7 +69,7 @@ nav{/*navigation bar*/
 	}
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1023px) {
 	#toggle:checked ~ #logo > #hamburger{/*changing color when menu visible*/
 		color: #555;
 	}

@@ -40,7 +40,7 @@ function loadProducts(){
         });
     }
 }
-function loadProducts1{
+function loadProducts1(){
     if($('#last_product_id').val()!=-1){
         var muszla = $('#filter_muszla').val();
         var cena = $('#filter_cena').val();

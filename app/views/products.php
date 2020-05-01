@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>AsArt Ceramika</title>
         <meta name="keywords" content="Ceramika, Ozdoby, Dom, Ogród, Morze" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
         <link rel="stylesheet"  href="files/style/style.css">
         <link rel="stylesheet"  href="files/style/nav_style.css">
         <link rel="stylesheet"  href="files/style/footer_style.css">
