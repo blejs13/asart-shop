@@ -9,7 +9,7 @@ main{
 	grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
     grid-template-areas: "info bank"
-						 "contact contact"
+						 "contact bank"
 						 "map map";
 }
 .contact>div{
