@@ -113,7 +113,7 @@ margin:   10px 10px 10px 0;
 	overflow: hidden;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: min-content auto;
-	grid-template-areas: "logout deleted"
+	grid-template-areas: "logout logout"
 					"add add";
 }
 .product_add > .logout{
@@ -170,8 +170,8 @@ margin:   10px 10px 10px 0;
 /*OVERLAY*/
 .overlay{
 	width:100vw;
-	height: 100%;
-	position: fixed;
+	height: 200%;
+	position: absolute;
 	background: #131313dd;
 	z-index: 1000;
 }
@@ -208,13 +208,15 @@ margin:   10px 10px 10px 0;
 	margin: 1em;
 	padding: 0em;
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: auto;
 	grid-gap: 10px;
-	grid-template-areas: "title miniature"
-					"price photos"
-					"info photos"
-					"checkboxes checkboxes"
-					"button button";
+	grid-template-areas: "title"
+					"price"
+					"info"
+					"miniature"
+					"photos"
+					"checkboxes"
+					"button";
 }
 
 .overlay>div>form>label{
@@ -321,7 +323,7 @@ margin:   10px 10px 10px 0;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
-	margin: 4px 2px;
+	max-width:200px;
 	cursor: pointer;
   }
 
@@ -329,6 +331,38 @@ margin:   10px 10px 10px 0;
 .grey{
 	color: #ddd;
 }
+
+
+/*preview images*/
+#miniature_preview{
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
+}
+#miniature_preview>img{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	display: none;
+}
+#photos_preview{
+	min-height: 100px;
+	overflow: hidden;
+}
+#photos_preview>div{
+	height: 100px;
+	width: 100px;
+	display: inline-block;
+	overflow: hidden;
+	margin-right:5px;
+}
+#photos_preview>div>img{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	display: none;
+}
+
 
 @media only screen and (max-width: 1023px) {
 }

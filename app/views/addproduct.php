@@ -1,4 +1,4 @@
-<form name="product" enctype="multipart/form-data" action="admin/insertProduct" method="post">
+<form name="product" onsubmit="insertProduct()" enctype="multipart/form-data" action="admin/insertProduct" method="post">
     <label id="title_input">Nazwa
         <input type="text" name="title" <?php if(isset($model['NAME'])){echo "value=".$model['NAME'];} ?>>
     </label>
@@ -9,10 +9,12 @@
         <input type="text" name="price" <?php if(isset($model['PRICE'])){echo "value=".$model['PRICE'];} ?>>
     </label>
     <label id="miniature_input">Miniatura:
-        <input name="miniature" type="file"/>
+        <input onchange="previewMiniature(this)" name="miniature" type="file"/>
+        <div id="miniature_preview"></div>
     </label>
     <label id="photos_input">Zdjęcia:
-        <input name="photos[]" type="file" multiple/>
+        <input name="photos[]" onchange="previewPhotos(this)" type="file" multiple/>
+        <div id="photos_preview"></div>
     </label>
     <div class="checkboxes_input">
         <label class="container" >Aktywny

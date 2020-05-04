@@ -92,18 +92,20 @@ class Admin extends Controller{
 
             echo json_encode($model);
             if($editedid!=""){
-
+                //$fi = new FilesystemIterator(__DIR__, FilesystemIterator::SKIP_DOTS);
+              //  $photosinfolder=iterator_count($fi);
+              
+ 
             }
             else{
                 //liczenie dobrych plikow
-                $extension=array("jpeg","jpg");
+                $extension=array("jpeg","jpg","png");
                 $numberofinserted=0;
                 foreach($model['FILES']['photos']['name'] as $index=>$tmp_name) {
                     $file_name=$model['FILES']['photos']['name'][$index];
                     $ext=pathinfo($file_name,PATHINFO_EXTENSION);
                     if(in_array($ext,$extension) && $model['FILES']['photos']['error'][$index]=="0") {
                         $numberofinserted++;
-                        echo 'good photo ';
                     }
                 }
                 //sprawdzenie czy jest miniatura
@@ -112,12 +114,10 @@ class Admin extends Controller{
                     $ext=pathinfo($file_name,PATHINFO_EXTENSION);
                     if(in_array($ext,$extension) && $model['FILES']['miniature']['error']=="0") {
                         $isminiature=true;
-                        echo 'good miniature ';
                     }
                 } 
                 //wstawianie produktu
                 if($isminiature==true && $numberofinserted!=0){
-                    echo 'trying to insert ';
                     $sql = "INSERT INTO products(NAME,INFO,PRICE,MUSZLA,ILOSC_ZDJEC,STATUS) VALUES('{$title}','{$info}',{$price},{$muszla},{$numberofinserted},{$status})";
                     $data = self::query($sql);
                     echo json_encode($data);
@@ -154,7 +154,8 @@ class Admin extends Controller{
         else{
             echo 'NOK';
         }
-       // header('Location: ../admin');
+
+        header('Location: ../admin');
     }
     else{
         $this->view('adminlogin');

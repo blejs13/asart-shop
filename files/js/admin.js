@@ -106,3 +106,52 @@ function deleteProduct(id){
 function logoutUser(){
     window.location.href = "admin/logout";
 }
+
+function previewMiniature(input){
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+            $('#miniature_preview>img').remove();
+            var miniature_prev = new Image;
+            miniature_prev.src=e.target.result;
+            miniature_prev.alt="miniatura";
+            miniature_prev.className="noSelect";
+            
+            /*$('#miniature_preview>img').attr('src', e.target.result);*/
+            $('#miniature_preview').append(miniature_prev);
+            $('#miniature_preview>img').show();
+        }
+        reader.readAsDataURL(input.files[0]); 
+    }
+}
+
+function previewPhotos(input){
+    if (input.files) {
+        var filesAmount = input.files.length;
+        var idiv=1;
+        $('#photos_preview>div').remove()
+        for (i = 0; i < filesAmount; i++) {
+            var reader = new FileReader();
+            $('#photos_preview').append("<div></div>");
+            reader.onload = function(event) {
+                var photo_prev = new Image;
+                photo_prev.src=event.target.result;
+                photo_prev.alt="zdjecie";
+                photo_prev.className="noSelect";
+                $('#photos_preview>div:nth-child('+idiv+')').append(photo_prev);
+                $('#photos_preview>div:nth-child('+idiv+')>img').show();
+                idiv++;
+            }
+
+            reader.readAsDataURL(input.files[i]);
+        }
+    }
+}
+
+function insertProduct(){
+    confirm("Czy na pewno chcesz zamienić miniature? Poprzednia zostanie usunięta!");
+    //if idedytowalnego not null i nowa miniatura to zapytaj o wstawiana miniaturke 
+    //else if pusta miniatura lub puste zdjecia alert musisz dodac zdjecia
+    return false;
+}

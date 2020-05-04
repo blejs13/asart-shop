@@ -47,7 +47,7 @@
                     <main>
                         <div class="product_add">
                             <div  onclick="logoutUser()" class="logout  noSelect"><p>Wyloguj</p></div>
-                            <div  onclick="viewDeleted()" class="deleted  noSelect"><p>Usunięte</p></div>
+                            <!--<div  onclick="viewDeleted()" class="deleted  noSelect"><p>Usunięte</p></div>-->
                             <div  onclick="addNewProduct()" class="add noSelect"><p>+</p></div> 
                         </div>
                         <input id="last_product_id" type="hidden" value="1000000000">

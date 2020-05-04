@@ -6,11 +6,12 @@ main{
 	background: #fff;
 	grid-template-columns: auto;
 	margin: 0.3em 0.3em 0em 0.3em;
-	grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "info bank"
-						 "contact bank"
-						 "map map";
+	grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: "info"
+						 "contact"
+						 "bank"
+						 "map";
 }
 .contact>div{
 	justify-self: start;
@@ -44,13 +45,14 @@ main{
 	display: none;
 }
 
-
-
-
-@media only screen and (min-width: 440px){
-}
-@media only screen and(min-width: 1023px){
-   
+@media only screen and (min-width: 600px){
+	.contact{
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto auto auto;
+		grid-template-areas: "info bank"
+							 "contact bank"
+							 "map map";
+	}
 }
 
 
