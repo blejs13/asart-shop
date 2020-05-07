@@ -1,9 +1,9 @@
-<form name="product" onsubmit="insertProduct()" enctype="multipart/form-data" action="admin/insertProduct" method="post">
+<form name="product" onsubmit="return insertProduct()" enctype="multipart/form-data" action="admin/insertProduct" method="post">
     <label id="title_input">Nazwa
         <input type="text" name="title" <?php if(isset($model['NAME'])){echo "value=".$model['NAME'];} ?>>
     </label>
     <label id="info_input">Opis
-        <input type="textarea" name="info" <?php if(isset($model['INFO'])){echo "value=".$model['INFO'];} ?>>
+        <input type="textarea" name="info" <?php if(isset($model['INFO'])){echo 'value="'.$model['INFO'].'"';} ?>>
     </label>
     <label id="price_input">Cena
         <input type="text" name="price" <?php if(isset($model['PRICE'])){echo "value=".$model['PRICE'];} ?>>

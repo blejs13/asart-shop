@@ -108,11 +108,10 @@ function logoutUser(){
 }
 
 function previewMiniature(input){
+    $('#miniature_preview>img').remove();
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-        
         reader.onload = function(e) {
-            $('#miniature_preview>img').remove();
             var miniature_prev = new Image;
             miniature_prev.src=e.target.result;
             miniature_prev.alt="miniatura";
@@ -127,10 +126,10 @@ function previewMiniature(input){
 }
 
 function previewPhotos(input){
+    $('#photos_preview>div').remove();
     if (input.files) {
         var filesAmount = input.files.length;
         var idiv=1;
-        $('#photos_preview>div').remove()
         for (i = 0; i < filesAmount; i++) {
             var reader = new FileReader();
             $('#photos_preview').append("<div></div>");
@@ -150,8 +149,14 @@ function previewPhotos(input){
 }
 
 function insertProduct(){
-    confirm("Czy na pewno chcesz zamienić miniature? Poprzednia zostanie usunięta!");
-    //if idedytowalnego not null i nowa miniatura to zapytaj o wstawiana miniaturke 
-    //else if pusta miniatura lub puste zdjecia alert musisz dodac zdjecia
-    return false;
+    if($('#edited_product_id').val()!="" && $('#miniature_input>input').get(0).files.length != 0 && !confirm("Czy na pewno chcesz zamienić miniature? Poprzednia zostanie usunięta!")){
+     alert("nie chcesz zmineniac");
+        return false;
+    }
+    else if($('#edited_product_id').val()=="" && ($('#miniature_input>input').get(0).files.length == 0 || $('#photos_input>input').get(0).files.length == 0)){
+        alert("Musisz dodać zdjęcia!");
+        return false;
+    }
+    alert("dodawanie");
+    return true;
 }

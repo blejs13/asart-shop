@@ -92,10 +92,53 @@ class Admin extends Controller{
 
             echo json_encode($model);
             if($editedid!=""){
-                //$fi = new FilesystemIterator(__DIR__, FilesystemIterator::SKIP_DOTS);
-              //  $photosinfolder=iterator_count($fi);
-              
- 
+                $fi = new FilesystemIterator(__DIR__."\\..\\..\\files\\images\\products\\".$editedid."\\fullsize", FilesystemIterator::SKIP_DOTS);
+                $photosinfolder=iterator_count($fi);
+                //liczenie dobrych plikow
+                $extension=array("jpeg","jpg","png");
+                $numberofinserted=0;
+                foreach($model['FILES']['photos']['name'] as $index=>$tmp_name) {
+                    $file_name=$model['FILES']['photos']['name'][$index];
+                    $ext=pathinfo($file_name,PATHINFO_EXTENSION);
+                    if(in_array($ext,$extension) && $model['FILES']['photos']['error'][$index]=="0") {
+                        $numberofinserted++;
+                    }
+                }
+                //sprawdzenie czy jest miniatura
+                if(isset($model['FILES']['miniature'])){
+                    $file_name=$model['FILES']['miniature']['name'];
+                    $ext=pathinfo($file_name,PATHINFO_EXTENSION);
+                    if(in_array($ext,$extension) && $model['FILES']['miniature']['error']=="0") {
+                        $isminiature=true;
+                    }
+                }
+                $updatetednumberofphotos = $photosinfolder + $numberofinserted;
+                echo $photosinfolder." ".$numberofinserted." ";
+                 
+                $sql = "UPDATE products SET NAME='{$title}',INFO='{$info}',PRICE={$price},MUSZLA={$muszla},ILOSC_ZDJEC={$updatetednumberofphotos},STATUS={$status}, EDIT_DATE=CURRENT_TIMESTAMP WHERE ID=$editedid";
+                $data = self::query($sql);
+                if($isminiature==true){
+                    $file_tmp=$model['FILES']['miniature']["tmp_name"];
+                    rename("files/images/products/".$editedid."/small/smallphoto.jpg","files/images/products/".$editedid."/small/smallphoto1.jpg");
+                    move_uploaded_file($file_tmp,"files/images/products/".$editedid."/small/smallphoto.jpg");
+                }
+                if($numberofinserted!=0){
+                    $imgfolder=$photosinfolder+1;
+                    foreach($model['FILES']['photos']['name'] as $index=>$tmp_name) {
+                        $file_name=$model['FILES']['photos']["name"][$index];
+                        $file_tmp=$model['FILES']['photos']["tmp_name"][$index];
+                        $ext=pathinfo($file_name,PATHINFO_EXTENSION);
+                        
+                        if(in_array($ext,$extension)  && $model['FILES']['photos']['error'][$index]=="0") {
+                            move_uploaded_file($file_tmp,"files/images/products/".$editedid."/fullsize/photo".$imgfolder.".jpg");
+                            $imgfolder++;    
+                        }
+                        else {
+                            array_push($error,"Błąd zapisu $file_name, podczas wstawiania produktu.");
+                        }
+                    }
+                }
+                
             }
             else{
                 //liczenie dobrych plikow
@@ -120,11 +163,11 @@ class Admin extends Controller{
                 if($isminiature==true && $numberofinserted!=0){
                     $sql = "INSERT INTO products(NAME,INFO,PRICE,MUSZLA,ILOSC_ZDJEC,STATUS) VALUES('{$title}','{$info}',{$price},{$muszla},{$numberofinserted},{$status})";
                     $data = self::query($sql);
-                    echo json_encode($data);
+                    //echo json_encode($data);
                     $sql ="SELECT ID FROM products ORDER BY ID  DESC LIMIT 1;";
                     $data = self::query($sql);
-                    echo ' ';
-                    echo json_encode($data);
+                    //echo ' ';
+                    //echo json_encode($data);
                     $lastid = $data[0][0];
                     if( is_dir("files/images/products/".$lastid) === false )
                     {   
@@ -155,7 +198,7 @@ class Admin extends Controller{
             echo 'NOK';
         }
 
-        header('Location: ../admin');
+        //header('Location: ../admin');
     }
     else{
         $this->view('adminlogin');
